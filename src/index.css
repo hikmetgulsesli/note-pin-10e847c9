@@ -163,3 +163,57 @@ body { font-family: var(--font-body-md, "Hanken Grotesk"), "Segoe UI", sans-seri
             background-color: #c3c6d7; /* outline-variant equivalent */
         }
 /* SETFARM_STITCH_CUSTOM_CSS_END */
+
+/* SETFARM_NORTH_STAR_CUSTOM_CSS_START */
+/* Custom app-shell styles for US-001: layout tokens for the Note Pin shell,
+   banner, and tab bar. Owned by src/App.tsx (app_shell scope role). */
+.note-pin-shell {
+  display: flex;
+  flex-direction: column;
+}
+.note-pin-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  background-color: color-mix(in srgb, var(--color-error, #b3261e) 12%, transparent);
+  color: var(--color-on-surface, #1c1b1f);
+  border-bottom: 1px solid color-mix(in srgb, var(--color-error, #b3261e) 35%, transparent);
+}
+.note-pin-banner__dismiss {
+  border: 1px solid var(--color-outline-variant, #cac4d0);
+  background: var(--color-surface, #ffffff);
+  color: var(--color-on-surface, #1c1b1f);
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font: inherit;
+  cursor: pointer;
+}
+.note-pin-tabbar {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--color-outline-variant, #cac4d0);
+  background-color: var(--color-surface-container-low, #f7f2fa);
+}
+.note-pin-tabbar__tab {
+  border: 1px solid var(--color-outline-variant, #cac4d0);
+  background: var(--color-surface, #ffffff);
+  color: var(--color-on-surface, #1c1b1f);
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font: inherit;
+  cursor: pointer;
+  transition: transform 120ms ease, opacity 120ms ease, background-color 120ms ease;
+}
+.note-pin-tabbar__tab[aria-current="page"] {
+  background-color: var(--color-primary, #6750a4);
+  color: var(--color-on-primary, #ffffff);
+  border-color: transparent;
+}
+.note-pin-tabbar__tab:focus-visible {
+  outline: 2px solid var(--color-primary, #6750a4);
+  outline-offset: 2px;
+}
+/* SETFARM_NORTH_STAR_CUSTOM_CSS_END */
