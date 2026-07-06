@@ -1,0 +1,29 @@
+[
+  {
+    "screenId": "296c3f074ff7424089535b3a95034469",
+    "name": "Record Editor - Note Pin",
+    "type": "form",
+    "description": "Record Editor - Note Pin screen",
+    "surfaceIds": [
+      "SURF_RECORD_EDITOR"
+    ]
+  },
+  {
+    "screenId": "efbd0ed3f3c641b6baaaff3ceb420a9d",
+    "name": "Insights - Note Pin",
+    "type": "app-screen",
+    "description": "Insights - Note Pin screen",
+    "surfaceIds": [
+      "SURF_INSIGHTS"
+    ]
+  },
+  {
+    "screenId": "f16272b4acc84609bb58ed4abcacdb01",
+    "name": "Record Operations - Note Pin",
+    "type": "app-screen",
+    "description": "Record Operations - Note Pin screen",
+    "surfaceIds": [
+      "SURF_RECORD_OPERATIONS"
+    ]
+  }
+]

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Record Operations - Note Pin</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Design System Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed-variant": "#7d2d00",
+                    "inverse-primary": "#b4c5ff",
+                    "on-tertiary-container": "#ffede6",
+                    "tertiary-fixed": "#ffdbcd",
+                    "on-primary-fixed": "#00174b",
+                    "on-tertiary-fixed": "#360f00",
+                    "secondary": "#505f76",
+                    "on-secondary-fixed-variant": "#38485d",
+                    "on-background": "#191c1e",
+                    "surface-bright": "#f7f9fb",
+                    "primary-container": "#2563eb",
+                    "surface-variant": "#e0e3e5",
+                    "error": "#ba1a1a",
+                    "tertiary": "#943700",
+                    "tertiary-fixed-dim": "#ffb596",
+                    "surface-container-low": "#f2f4f6",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "surface": "#f7f9fb",
+                    "outline-variant": "#c3c6d7",
+                    "on-tertiary": "#ffffff",
+                    "surface-container": "#eceef0",
+                    "secondary-container": "#d0e1fb",
+                    "inverse-surface": "#2d3133",
+                    "on-primary-container": "#eeefff",
+                    "surface-container-highest": "#e0e3e5",
+                    "primary-fixed": "#dbe1ff",
+                    "on-secondary-container": "#54647a",
+                    "primary": "#004ac6",
+                    "error-container": "#ffdad6",
+                    "on-secondary-fixed": "#0b1c30",
+                    "surface-tint": "#0053db",
+                    "outline": "#737686",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "secondary-fixed-dim": "#b7c8e1",
+                    "background": "#f7f9fb",
+                    "on-error-container": "#93000a",
+                    "secondary-fixed": "#d3e4fe",
+                    "on-surface-variant": "#434655",
+                    "on-error": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "on-surface": "#191c1e",
+                    "surface-dim": "#d8dadc",
+                    "tertiary-container": "#bc4800",
+                    "inverse-on-surface": "#eff1f3",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "surface-container-high": "#e6e8ea"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "xl": "32px",
+                    "margin-desktop": "40px",
+                    "md": "16px",
+                    "xs": "4px",
+                    "base": "4px",
+                    "lg": "24px",
+                    "sm": "8px",
+                    "margin-mobile": "16px",
+                    "gutter": "16px"
+            },
+            "fontFamily": {
+                    "label-md": ["Inter", "sans-serif"],
+                    "label-sm": ["Inter", "sans-serif"],
+                    "headline-lg": ["Inter", "sans-serif"],
+                    "body-md": ["Inter", "sans-serif"],
+                    "headline-md": ["Inter", "sans-serif"],
+                    "body-sm": ["Inter", "sans-serif"],
+                    "headline-lg-mobile": ["Inter", "sans-serif"]
+            },
+            "fontSize": {
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                    "headline-lg": ["30px", {"lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "letterSpacing": "0", "fontWeight": "400"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "letterSpacing": "0", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "600"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        
+        /* Utilitarian scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #e0e3e5; /* surface-variant equivalent */
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: #c3c6d7; /* outline-variant equivalent */
+        }
+        
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md text-body-md h-screen w-screen overflow-hidden flex flex-col md:flex-row antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- Mobile TopNavBar (JSON Executed) -->
+<nav class="md:hidden bg-surface flex justify-between items-center w-full px-margin-desktop h-10 max-w-full docked full-width top-0 border-b border-outline-variant z-50 shrink-0">
+<div class="font-headline-md text-headline-md font-bold text-primary">Note Pin</div>
+<div class="flex gap-4">
+<span class="text-primary border-b-2 border-primary pb-1 cursor-pointer active:opacity-80 font-label-md text-label-md">Records</span>
+<span class="text-secondary cursor-pointer active:opacity-80 font-label-md text-label-md hover:bg-surface-container-low transition-colors">Editor</span>
+</div>
+<button class="font-label-md text-label-md text-primary cursor-pointer active:opacity-80 font-bold">Create</button>
+</nav>
+<!-- Desktop SideNavBar (JSON Executed) -->
+<aside class="hidden md:flex flex-col h-full py-lg px-md bg-surface-container-lowest docked left-0 w-[320px] border-r border-outline-variant shrink-0 z-40">
+<!-- Header -->
+<div class="flex items-center gap-sm mb-lg">
+<div class="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">person</span>
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md font-bold text-on-surface leading-tight">Note Pin</h1>
+<p class="font-label-sm text-label-sm text-secondary">Minimalist Utility</p>
+</div>
+</div>
+<!-- CTA -->
+<button class="mb-lg w-full bg-primary text-on-primary py-[8px] px-[16px] rounded font-label-md text-label-md active:scale-[0.98] transition-transform flex items-center justify-center gap-2 shadow-[0_1px_2px_rgba(0,0,0,0.05)] hover:bg-primary/90">
+<span class="material-symbols-outlined text-[20px]">add</span>
+            New Note
+        </button>
+<!-- Navigation Tabs -->
+<nav class="flex flex-col gap-1 flex-1">
+<!-- Active Tab -->
+<button class="flex items-center gap-3 px-3 py-2 bg-secondary-container text-on-secondary-container rounded-lg font-bold font-label-md text-label-md active:scale-[0.98] transition-transform w-full text-left">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">list_alt</span>
+                Records
+            </button>
+<!-- Inactive Tabs -->
+<button class="flex items-center gap-3 px-3 py-2 text-secondary hover:bg-surface-container-high rounded-lg font-label-md text-label-md active:scale-[0.98] hover:bg-surface-container transition-all w-full text-left">
+<span class="material-symbols-outlined">edit_note</span>
+                Editor
+            </button>
+<button class="flex items-center gap-3 px-3 py-2 text-secondary hover:bg-surface-container-high rounded-lg font-label-md text-label-md active:scale-[0.98] hover:bg-surface-container transition-all w-full text-left">
+<span class="material-symbols-outlined">analytics</span>
+                Insights
+            </button>
+</nav>
+<!-- Footer Tabs -->
+<div class="mt-auto pt-sm border-t border-outline-variant flex flex-col gap-1">
+<button class="flex items-center gap-3 px-3 py-2 text-secondary hover:bg-surface-container-high rounded-lg font-label-md text-label-md active:scale-[0.98] hover:bg-surface-container transition-all w-full text-left">
+<span class="material-symbols-outlined">settings</span>
+                Settings
+            </button>
+<button class="flex items-center gap-3 px-3 py-2 text-secondary hover:bg-surface-container-high rounded-lg font-label-md text-label-md active:scale-[0.98] hover:bg-surface-container transition-all w-full text-left">
+<span class="material-symbols-outlined">help</span>
+                Support
+            </button>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="flex-1 flex flex-col h-full w-full overflow-hidden relative bg-surface">
+<!-- Toolbar & Context Header -->
+<header class="px-md md:px-lg py-lg border-b border-outline-variant bg-surface flex flex-col gap-4 shrink-0">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg font-bold text-on-surface">Record Operations</h2>
+<div class="flex gap-2">
+<button class="border border-outline-variant bg-surface-container-lowest text-secondary py-[8px] px-[16px] rounded font-label-md text-label-md hover:bg-surface-container-low focus:ring-2 focus:ring-primary focus:ring-offset-1 transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">filter_list</span>
+<span class="hidden sm:inline">Filter</span>
+</button>
+<button class="border border-outline-variant bg-surface-container-lowest text-secondary py-[8px] px-[16px] rounded font-label-md text-label-md hover:bg-surface-container-low focus:ring-2 focus:ring-primary focus:ring-offset-1 transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">sort</span>
+<span class="hidden sm:inline">Sort</span>
+</button>
+</div>
+</div>
+<!-- Search & Metrics Row -->
+<div class="flex flex-col xl:flex-row gap-4 xl:items-center justify-between">
+<!-- Persistent Search -->
+<div class="relative w-full xl:max-w-md group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-secondary group-focus-within:text-primary transition-colors">search</span>
+<input class="w-full h-[40px] pl-10 pr-4 border border-outline-variant rounded bg-surface-container-lowest text-on-surface placeholder:text-secondary font-body-md text-body-md focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all shadow-[0_1px_2px_rgba(0,0,0,0.02)]" placeholder="Search records, tags, or content..." type="text"/>
+</div>
+<!-- Summary Metrics (Bento-style compact) -->
+<div class="flex gap-2 shrink-0 overflow-x-auto pb-1 xl:pb-0 scrollbar-hide">
+<div class="bg-surface-container-lowest border border-outline-variant rounded px-4 py-2 flex flex-col min-w-[120px]">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">Total Notes</span>
+<span class="font-headline-md text-headline-md font-bold text-on-surface mt-1">1,248</span>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded px-4 py-2 flex flex-col min-w-[120px]">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">Recently Edited</span>
+<span class="font-headline-md text-headline-md font-bold text-on-surface mt-1">12</span>
+</div>
+<!-- Error State Example in Metrics -->
+<div class="bg-error-container/20 border border-error/30 rounded px-4 py-2 flex flex-col min-w-[120px] justify-center">
+<span class="font-label-sm text-label-sm text-error flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">sync_problem</span> Sync Error
+                        </span>
+<button class="font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface mt-1 text-left underline decoration-dotted">Retry Load</button>
+</div>
+</div>
+</div>
+</header>
+<!-- Workspace Layout (Sidebar-Detail Pattern) -->
+<div class="flex-1 flex overflow-hidden w-full relative">
+<!-- Primary List Pane -->
+<div class="w-full md:w-[360px] xl:w-[420px] flex flex-col bg-surface border-r border-outline-variant shrink-0 relative z-10">
+<!-- List Sub-header -->
+<div class="px-md py-sm bg-surface-bright border-b border-surface-variant flex justify-between items-center sticky top-0 z-20 shadow-[0_4px_12px_rgba(0,0,0,0.02)]">
+<span class="font-label-sm text-label-sm text-secondary font-bold">All Records</span>
+<button class="material-symbols-outlined text-secondary text-[18px] hover:text-on-surface transition-colors cursor-pointer" title="Refresh List">refresh</button>
+</div>
+<!-- List Content (Scrollable) -->
+<div class="flex-1 overflow-y-auto pb-lg">
+<!-- Compact List Items (48px height based on guidance) -->
+<!-- Active/Selected Item -->
+<div class="h-[48px] px-md border-b border-surface-variant flex items-center gap-3 bg-secondary-container/40 cursor-pointer relative group">
+<!-- Selection Indicator Line -->
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-primary rounded-r"></div>
+<div class="w-2 h-2 rounded-full bg-[#10B981] shrink-0" title="Pinned/Active"></div>
+<div class="flex-1 min-w-0 flex flex-col justify-center">
+<p class="font-label-md text-label-md text-on-surface truncate">Q3 Financial Projections &amp; Strategy</p>
+</div>
+<span class="font-label-sm text-label-sm text-secondary shrink-0 group-hover:hidden">10:42 AM</span>
+<button class="hidden group-hover:flex material-symbols-outlined text-secondary text-[16px] hover:text-primary shrink-0" title="Inline Edit">edit</button>
+</div>
+<!-- Standard Items -->
+<div class="h-[48px] px-md border-b border-surface-variant flex items-center gap-3 hover:bg-[#F1F5F9] cursor-pointer transition-colors group">
+<div class="w-2 h-2 rounded-full bg-[#F59E0B] shrink-0" title="Draft"></div>
+<div class="flex-1 min-w-0 flex flex-col justify-center">
+<p class="font-body-md text-body-md text-on-surface truncate">Meeting Notes: Project Alpha Kickoff</p>
+</div>
+<span class="font-label-sm text-label-sm text-secondary shrink-0 group-hover:hidden">Yesterday</span>
+<button class="hidden group-hover:flex material-symbols-outlined text-secondary text-[16px] hover:text-primary shrink-0">edit</button>
+</div>
+<div class="h-[48px] px-md border-b border-surface-variant flex items-center gap-3 hover:bg-[#F1F5F9] cursor-pointer transition-colors group">
+<div class="w-2 h-2 rounded-full bg-[#94A3B8] shrink-0" title="Archived"></div>
+<div class="flex-1 min-w-0 flex flex-col justify-center">
+<p class="font-body-md text-body-md text-on-surface truncate">Vendor Equipment List v2</p>
+</div>
+<span class="font-label-sm text-label-sm text-secondary shrink-0 group-hover:hidden">Oct 12</span>
+<button class="hidden group-hover:flex material-symbols-outlined text-secondary text-[16px] hover:text-primary shrink-0">edit</button>
+</div>
+<div class="h-[48px] px-md border-b border-surface-variant flex items-center gap-3 hover:bg-[#F1F5F9] cursor-pointer transition-colors group">
+<div class="w-2 h-2 rounded-full bg-[#10B981] shrink-0" title="Active"></div>
+<div class="flex-1 min-w-0 flex flex-col justify-center">
+<p class="font-body-md text-body-md text-on-surface truncate">Design System Typography Audit</p>
+</div>
+<span class="font-label-sm text-label-sm text-secondary shrink-0 group-hover:hidden">Oct 10</span>
+<button class="hidden group-hover:flex material-symbols-outlined text-secondary text-[16px] hover:text-primary shrink-0">edit</button>
+</div>
+<div class="h-[48px] px-md border-b border-surface-variant flex items-center gap-3 hover:bg-[#F1F5F9] cursor-pointer transition-colors group">
+<div class="w-2 h-2 rounded-full bg-[#F59E0B] shrink-0" title="Draft"></div>
+<div class="flex-1 min-w-0 flex flex-col justify-center">
+<p class="font-body-md text-body-md text-on-surface truncate">Onboarding Workflow Diagrams</p>
+</div>
+<span class="font-label-sm text-label-sm text-secondary shrink-0 group-hover:hidden">Oct 08</span>
+<button class="hidden group-hover:flex material-symbols-outlined text-secondary text-[16px] hover:text-primary shrink-0">edit</button>
+</div>
+<!-- Loading State Placeholder (Visual only, at bottom of list) -->
+<div class="h-[48px] px-md flex items-center justify-center gap-2 text-secondary">
+<span class="material-symbols-outlined animate-spin text-[18px]">progress_activity</span>
+<span class="font-label-sm text-label-sm">Loading older records...</span>
+</div>
+</div>
+</div>
+<!-- Detail Pane (Selected Item Preview / Empty State) -->
+<div class="hidden md:flex flex-1 bg-surface-container-lowest overflow-y-auto flex-col relative z-0">
+<!-- Empty State (Uncomment to view empty state behavior, currently displaying actual content to show dense UI) -->
+<!--
+                <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-8 bg-surface-container-lowest z-50">
+                    <div class="w-24 h-24 rounded-full bg-surface-container flex items-center justify-center mb-6">
+                        <span class="material-symbols-outlined text-[48px] text-surface-variant" style="font-variation-settings: 'FILL' 0;">description</span>
+                    </div>
+                    <h3 class="font-headline-md text-headline-md font-bold text-on-surface mb-2">No Record Selected</h3>
+                    <p class="font-body-md text-body-md text-secondary max-w-sm mb-8">Select a record from the list to view its details, edit content, or view history.</p>
+                    <button class="bg-primary text-on-primary py-[8px] px-[16px] rounded font-label-md text-label-md hover:opacity-90 active:scale-[0.98] transition-transform flex items-center gap-2">
+                        <span class="material-symbols-outlined text-[18px]">add</span> Create New Record
+                    </button>
+                </div>
+                -->
+<!-- Selected Item Preview Content -->
+<div class="p-lg xl:p-xl max-w-4xl mx-auto w-full">
+<!-- Detail Meta / Chips -->
+<div class="flex flex-wrap items-center gap-2 mb-6">
+<span class="px-2 py-1 bg-[#F1F5F9] rounded text-secondary font-label-sm text-label-sm">Strategy</span>
+<span class="px-2 py-1 bg-[#F1F5F9] rounded text-secondary font-label-sm text-label-sm">Finance</span>
+<span class="px-2 py-1 bg-[#F1F5F9] rounded text-secondary font-label-sm text-label-sm">Q3</span>
+<div class="ml-auto flex items-center gap-4">
+<span class="text-secondary font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">history</span> Last edited by User • 10:42 AM
+                            </span>
+<div class="flex gap-1 border-l border-outline-variant pl-4">
+<button class="material-symbols-outlined text-secondary hover:text-on-surface transition-colors p-1 rounded hover:bg-surface-container-low" title="Share">share</button>
+<button class="material-symbols-outlined text-secondary hover:text-on-surface transition-colors p-1 rounded hover:bg-surface-container-low" title="More Options">more_vert</button>
+</div>
+</div>
+</div>
+<!-- Editable Title -->
+<h1 class="font-headline-lg text-headline-lg font-bold text-on-surface mb-8 outline-none border-b border-transparent focus:border-primary/30 transition-colors pb-1" contenteditable="true" data-placeholder="Untitled Record">Q3 Financial Projections &amp; Strategy</h1>
+<!-- Document Body (Simulated minimal editor surface) -->
+<div class="font-body-md text-body-md text-on-surface-variant space-y-5 outline-none" contenteditable="true">
+<p class="leading-relaxed">This document outlines the core strategic initiatives for the upcoming quarter, focusing heavily on margin improvement and operational efficiency across the new product lines introduced in Q1.</p>
+<h3 class="font-headline-md text-headline-md font-bold text-on-surface mt-8 mb-3">Key Objectives</h3>
+<ul class="list-disc pl-5 space-y-2 marker:text-secondary">
+<li>Reduce cloud infrastructure costs by 15% through reserved instances and automated scaling policies.</li>
+<li>Launch the new "Enterprise Tier" pricing model by mid-August.</li>
+<li>Achieve a 99.99% uptime SLA for premium customers to prevent churn.</li>
+</ul>
+<p class="leading-relaxed mt-6">The attached data models (see inline references) indicate a strong probability of meeting these targets if Q2 hiring goals for the DevOps team are met by end of month.</p>
+<!-- Inline Data Table (Utilitarian layout) -->
+<div class="mt-8 border border-outline-variant rounded bg-surface overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container border-b border-outline-variant">
+<tr>
+<th class="py-2 px-4 font-label-sm text-label-sm text-secondary uppercase tracking-wider font-bold">Initiative</th>
+<th class="py-2 px-4 font-label-sm text-label-sm text-secondary uppercase tracking-wider font-bold w-48">Owner</th>
+<th class="py-2 px-4 font-label-sm text-label-sm text-secondary uppercase tracking-wider font-bold w-40">Status</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-b border-outline-variant hover:bg-surface-bright transition-colors">
+<td class="py-3 px-4 font-body-sm text-body-sm text-on-surface">Infrastructure Audit &amp; Resource Tagging</td>
+<td class="py-3 px-4 font-body-sm text-body-sm text-secondary">DevOps Team</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-surface-container-high font-label-sm text-label-sm text-on-surface">
+<span class="w-1.5 h-1.5 rounded-full bg-[#F59E0B]"></span> In Progress
+                                            </span>
+</td>
+</tr>
+<tr class="hover:bg-surface-bright transition-colors">
+<td class="py-3 px-4 font-body-sm text-body-sm text-on-surface">Enterprise Tier Go-To-Market Plan</td>
+<td class="py-3 px-4 font-body-sm text-body-sm text-secondary">Product Management</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-surface-container-high font-label-sm text-label-sm text-on-surface">
+<span class="w-1.5 h-1.5 rounded-full bg-[#94A3B8]"></span> Planning
+                                            </span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Activity Event Log Context (Small at bottom) -->
+<div class="mt-12 pt-6 border-t border-surface-variant">
+<h4 class="font-label-md text-label-md text-on-surface font-bold mb-3">Recent Activity</h4>
+<div class="flex flex-col gap-2">
+<div class="flex items-start gap-3">
+<div class="w-6 h-6 rounded-full bg-surface-container flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[14px] text-secondary">edit</span>
+</div>
+<div>
+<p class="font-body-sm text-body-sm text-on-surface">User updated the objectives list.</p>
+<p class="font-label-sm text-label-sm text-secondary">Today at 10:42 AM</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

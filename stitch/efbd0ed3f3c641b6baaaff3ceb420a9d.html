@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Insights - Note Pin</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary-fixed-variant": "#7d2d00",
+                      "inverse-primary": "#b4c5ff",
+                      "on-tertiary-container": "#ffede6",
+                      "tertiary-fixed": "#ffdbcd",
+                      "on-primary-fixed": "#00174b",
+                      "on-tertiary-fixed": "#360f00",
+                      "secondary": "#505f76",
+                      "on-secondary-fixed-variant": "#38485d",
+                      "on-background": "#191c1e",
+                      "surface-bright": "#f7f9fb",
+                      "primary-container": "#2563eb",
+                      "surface-variant": "#e0e3e5",
+                      "error": "#ba1a1a",
+                      "tertiary": "#943700",
+                      "tertiary-fixed-dim": "#ffb596",
+                      "surface-container-low": "#f2f4f6",
+                      "primary-fixed-dim": "#b4c5ff",
+                      "surface": "#f7f9fb",
+                      "outline-variant": "#c3c6d7",
+                      "on-tertiary": "#ffffff",
+                      "surface-container": "#eceef0",
+                      "secondary-container": "#d0e1fb",
+                      "inverse-surface": "#2d3133",
+                      "on-primary-container": "#eeefff",
+                      "surface-container-highest": "#e0e3e5",
+                      "primary-fixed": "#dbe1ff",
+                      "on-secondary-container": "#54647a",
+                      "primary": "#004ac6",
+                      "error-container": "#ffdad6",
+                      "on-secondary-fixed": "#0b1c30",
+                      "surface-tint": "#0053db",
+                      "outline": "#737686",
+                      "surface-container-lowest": "#ffffff",
+                      "on-secondary": "#ffffff",
+                      "secondary-fixed-dim": "#b7c8e1",
+                      "background": "#f7f9fb",
+                      "on-error-container": "#93000a",
+                      "secondary-fixed": "#d3e4fe",
+                      "on-surface-variant": "#434655",
+                      "on-error": "#ffffff",
+                      "on-primary": "#ffffff",
+                      "on-surface": "#191c1e",
+                      "surface-dim": "#d8dadc",
+                      "tertiary-container": "#bc4800",
+                      "inverse-on-surface": "#eff1f3",
+                      "on-primary-fixed-variant": "#003ea8",
+                      "surface-container-high": "#e6e8ea"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "xl": "32px",
+                      "margin-desktop": "40px",
+                      "md": "16px",
+                      "xs": "4px",
+                      "base": "4px",
+                      "lg": "24px",
+                      "sm": "8px",
+                      "margin-mobile": "16px",
+                      "gutter": "16px"
+              },
+              "fontFamily": {
+                      "label-md": ["Inter"],
+                      "label-sm": ["Inter"],
+                      "headline-lg": ["Inter"],
+                      "body-md": ["Inter"],
+                      "headline-md": ["Inter"],
+                      "body-sm": ["Inter"],
+                      "headline-lg-mobile": ["Inter"]
+              },
+              "fontSize": {
+                      "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                      "headline-lg": ["30px", {"lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "letterSpacing": "0", "fontWeight": "400"}],
+                      "headline-md": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "body-sm": ["14px", {"lineHeight": "20px", "letterSpacing": "0", "fontWeight": "400"}],
+                      "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "600"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1;
+        }
+        /* Custom scrollbar for minimalistic feel */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #e0e3e5; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #c3c6d7; }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md text-body-md h-screen overflow-hidden flex selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- JSON Component: SideNavBar -->
+<nav class="hidden md:flex flex-col h-full py-lg px-md bg-surface-container-lowest docked left-0 w-[320px] border-r border-outline-variant flat no shadows shrink-0 z-10 relative">
+<!-- Header -->
+<div class="flex items-center gap-sm mb-xl px-sm">
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-on-primary-container text-[18px]">edit_document</span>
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md font-bold text-on-surface tracking-tight leading-tight">Note Pin</h1>
+<p class="font-label-sm text-label-sm text-secondary font-normal">Minimalist Utility</p>
+</div>
+</div>
+<!-- CTA -->
+<button class="w-full bg-primary hover:bg-on-primary-fixed-variant transition-colors text-on-primary font-label-md text-label-md rounded-lg py-[8px] px-md flex items-center justify-center gap-sm mb-xl active:scale-[0.98] shadow-[0_1px_2px_rgba(0,0,0,0.05)]">
+<span class="material-symbols-outlined text-[18px]">add</span>
+            New Note
+        </button>
+<!-- Navigation Links -->
+<div class="flex-1 flex flex-col gap-xs">
+<!-- Inactive: Records -->
+<a class="flex items-center gap-md px-md py-[10px] text-secondary hover:bg-surface-container-high transition-all active:scale-[0.98] rounded-lg font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined text-[20px]">list_alt</span>
+                Records
+            </a>
+<!-- Inactive: Editor -->
+<a class="flex items-center gap-md px-md py-[10px] text-secondary hover:bg-surface-container-high transition-all active:scale-[0.98] rounded-lg font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined text-[20px]">edit_note</span>
+                Editor
+            </a>
+<!-- Active: Insights (Conflict Resolution: Execute exact style_active_navigation) -->
+<a class="flex items-center gap-md px-md py-[10px] bg-secondary-container text-on-secondary-container rounded-lg font-bold hover:bg-surface-container transition-all active:scale-[0.98] font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined text-[20px] icon-fill">analytics</span>
+                Insights
+            </a>
+</div>
+<!-- Footer Links -->
+<div class="flex flex-col gap-xs mt-auto pt-lg border-t border-surface-variant">
+<a class="flex items-center gap-md px-md py-[10px] text-secondary hover:bg-surface-container-high transition-all active:scale-[0.98] rounded-lg font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+                Settings
+            </a>
+<a class="flex items-center gap-md px-md py-[10px] text-secondary hover:bg-surface-container-high transition-all active:scale-[0.98] rounded-lg font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined text-[20px]">help</span>
+                Support
+            </a>
+<!-- User Profile Mini -->
+<div class="flex items-center gap-md px-sm py-sm mt-sm rounded-lg hover:bg-surface-container-low cursor-pointer transition-colors">
+<img alt="User Profile" class="w-8 h-8 rounded-full object-cover border border-outline-variant" data-alt="A tightly cropped, high-contrast black and white portrait of a professional individual looking subtly away from the camera, bathed in soft studio lighting against a pure white background, embodying a clean, modern aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcK0MwPZQSMsHAdUMcTi-3h0CUzs9iUh0BE7vLn8ZpgfWikNf3av-xu9vLlDsAs4xNKOaHo31EYcOKdeyRDAHgqpuSAACcj-BLY5SdmKlQjjKxBVs1O8SwjyeH9cnD9y1hGZ1tN2japDO8p2HAbJWBp7zl4FI9dmObRBoB8ofbqulMzNXGuPa3KaJ6iJeF9fixmAu704qXAXcfnKeCGE9rSntrax5nEBrEp_dvcmfazJEDLcV4tSwNWnfexdTguof0hPp7ijWwjFk"/>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Alex Mercer</span>
+<span class="font-label-sm text-label-sm text-secondary font-normal">Pro Plan</span>
+</div>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-1 overflow-y-auto w-full relative bg-background">
+<div class="max-w-[1200px] mx-auto p-margin-mobile md:p-margin-desktop min-h-full flex flex-col">
+<!-- Page Header -->
+<header class="flex flex-col md:flex-row md:items-center justify-between gap-md mb-xl">
+<div>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface tracking-tight">Insights</h2>
+<p class="font-body-sm text-body-sm text-secondary mt-xs">A utilitarian overview of your note structure and recent activity.</p>
+</div>
+<div class="flex items-center gap-sm self-start md:self-auto">
+<!-- Action: Export Summary (Secondary Button) -->
+<button class="bg-surface border border-outline-variant text-on-surface hover:bg-surface-container-low transition-colors font-label-md text-label-md py-[6px] px-md rounded-lg flex items-center gap-sm h-10">
+<span class="material-symbols-outlined text-[18px]">download</span>
+                        Export Summary
+                    </button>
+<!-- Action: Filter Insights (Context Menu Trigger) -->
+<button class="bg-surface border border-outline-variant text-on-surface hover:bg-surface-container-low transition-colors w-10 h-10 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">filter_list</span>
+</button>
+</div>
+</header>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 auto-rows-min gap-md flex-1 pb-xl">
+<!-- Small Metric 1: Total Volume -->
+<div class="col-span-1 md:col-span-4 bg-surface border border-outline-variant rounded-xl p-lg flex flex-col justify-between hover:border-outline transition-colors group cursor-default">
+<div class="flex items-start justify-between mb-xl">
+<span class="font-label-md text-label-md text-secondary">Active Records</span>
+<div class="w-8 h-8 rounded-full bg-surface-container-low flex items-center justify-center group-hover:bg-primary-fixed transition-colors">
+<span class="material-symbols-outlined text-secondary group-hover:text-primary text-[18px]">library_books</span>
+</div>
+</div>
+<div>
+<div class="font-headline-lg text-headline-lg text-on-surface mb-xs">1,204</div>
+<div class="flex items-center gap-xs text-[#10B981] font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+<span>+12 this week</span>
+</div>
+</div>
+</div>
+<!-- Small Metric 2: Average Density -->
+<div class="col-span-1 md:col-span-4 bg-surface border border-outline-variant rounded-xl p-lg flex flex-col justify-between hover:border-outline transition-colors group cursor-default">
+<div class="flex items-start justify-between mb-xl">
+<span class="font-label-md text-label-md text-secondary">Avg. Word Count</span>
+<div class="w-8 h-8 rounded-full bg-surface-container-low flex items-center justify-center group-hover:bg-primary-fixed transition-colors">
+<span class="material-symbols-outlined text-secondary group-hover:text-primary text-[18px]">subject</span>
+</div>
+</div>
+<div>
+<div class="font-headline-lg text-headline-lg text-on-surface mb-xs">342</div>
+<div class="font-body-sm text-body-sm text-secondary">Per note average</div>
+</div>
+</div>
+<!-- Actionable Hint (High Priority) -->
+<div class="col-span-1 md:col-span-4 bg-secondary-container border border-outline-variant rounded-xl p-lg flex flex-col relative overflow-hidden group">
+<!-- Subtle background decoration -->
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-primary-fixed opacity-50 rounded-full blur-2xl pointer-events-none"></div>
+<div class="flex items-center gap-sm mb-md relative z-10">
+<span class="material-symbols-outlined text-on-secondary-container text-[20px] icon-fill">lightbulb</span>
+<span class="font-label-md text-label-md text-on-secondary-container font-bold">Suggestion</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface mb-auto relative z-10">You have <strong>8 notes</strong> marked as "Draft" older than 14 days. Consider archiving or finalizing them.</p>
+<button class="mt-lg self-start text-primary font-label-sm text-label-sm hover:text-on-primary-fixed-variant transition-colors flex items-center gap-xs relative z-10">
+                        Review Drafts
+                        <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+<!-- Activity Event List (Compact Density) -->
+<div class="col-span-1 md:col-span-7 bg-surface border border-outline-variant rounded-xl p-0 flex flex-col row-span-2 overflow-hidden">
+<div class="p-md border-b border-surface-variant flex items-center justify-between bg-surface-bright">
+<h3 class="font-headline-md text-headline-md text-on-surface text-[16px]">Recent Activity</h3>
+<button class="text-secondary hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[20px]">more_horiz</span>
+</button>
+</div>
+<div class="flex-1 overflow-y-auto">
+<!-- List Item 1 -->
+<div class="flex items-center gap-md px-md py-sm border-b border-surface-variant hover:bg-surface-container-lowest transition-colors h-[48px]">
+<div class="w-2 h-2 rounded-full bg-[#10B981] shrink-0"></div>
+<div class="flex-1 truncate font-body-sm text-body-sm text-on-surface">
+                                Updated <span class="font-medium">Project Apollo Specifications</span>
+</div>
+<div class="text-secondary font-label-sm text-label-sm shrink-0">2m ago</div>
+</div>
+<!-- List Item 2 -->
+<div class="flex items-center gap-md px-md py-sm border-b border-surface-variant hover:bg-surface-container-lowest transition-colors h-[48px]">
+<div class="w-2 h-2 rounded-full bg-primary shrink-0"></div>
+<div class="flex-1 truncate font-body-sm text-body-sm text-on-surface">
+                                Created <span class="font-medium">Weekly Groceries</span>
+</div>
+<div class="text-secondary font-label-sm text-label-sm shrink-0">1h ago</div>
+</div>
+<!-- List Item 3 -->
+<div class="flex items-center gap-md px-md py-sm border-b border-surface-variant hover:bg-surface-container-lowest transition-colors h-[48px]">
+<div class="w-2 h-2 rounded-full bg-[#F59E0B] shrink-0"></div>
+<div class="flex-1 truncate font-body-sm text-body-sm text-on-surface">
+                                Tagged <span class="font-medium">Q3 Planning</span> as #Urgent
+                            </div>
+<div class="text-secondary font-label-sm text-label-sm shrink-0">4h ago</div>
+</div>
+<!-- List Item 4 -->
+<div class="flex items-center gap-md px-md py-sm border-b border-surface-variant hover:bg-surface-container-lowest transition-colors h-[48px]">
+<div class="w-2 h-2 rounded-full bg-[#94A3B8] shrink-0"></div>
+<div class="flex-1 truncate font-body-sm text-body-sm text-on-surface">
+                                Archived <span class="font-medium">Old Server Logs 2022</span>
+</div>
+<div class="text-secondary font-label-sm text-label-sm shrink-0">Yesterday</div>
+</div>
+<!-- List Item 5 -->
+<div class="flex items-center gap-md px-md py-sm hover:bg-surface-container-lowest transition-colors h-[48px]">
+<div class="w-2 h-2 rounded-full bg-primary shrink-0"></div>
+<div class="flex-1 truncate font-body-sm text-body-sm text-on-surface">
+                                Created <span class="font-medium">Meeting Notes: Design Sync</span>
+</div>
+<div class="text-secondary font-label-sm text-label-sm shrink-0">Yesterday</div>
+</div>
+</div>
+<div class="p-xs bg-surface-container-lowest border-t border-surface-variant text-center">
+<button class="font-label-sm text-label-sm text-secondary hover:text-primary transition-colors py-sm w-full">View All Activity</button>
+</div>
+</div>
+<!-- State Distribution (Sparkline/Progress substitute) -->
+<div class="col-span-1 md:col-span-5 bg-surface border border-outline-variant rounded-xl p-lg flex flex-col justify-between">
+<div class="flex items-center justify-between mb-lg">
+<h3 class="font-headline-md text-headline-md text-on-surface text-[16px]">Category Distribution</h3>
+</div>
+<div class="flex flex-col gap-md">
+<!-- Progress Item 1 -->
+<div>
+<div class="flex justify-between font-label-sm text-label-sm mb-xs">
+<span class="text-on-surface">Work</span>
+<span class="text-secondary">65%</span>
+</div>
+<div class="w-full h-2 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 65%;"></div>
+</div>
+</div>
+<!-- Progress Item 2 -->
+<div>
+<div class="flex justify-between font-label-sm text-label-sm mb-xs">
+<span class="text-on-surface">Personal</span>
+<span class="text-secondary">25%</span>
+</div>
+<div class="w-full h-2 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-[#10B981] rounded-full" style="width: 25%;"></div>
+</div>
+</div>
+<!-- Progress Item 3 -->
+<div>
+<div class="flex justify-between font-label-sm text-label-sm mb-xs">
+<span class="text-on-surface">Research</span>
+<span class="text-secondary">10%</span>
+</div>
+<div class="w-full h-2 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-[#F59E0B] rounded-full" style="width: 10%;"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Empty/Error State Example -->
+<div class="col-span-1 md:col-span-5 bg-surface-container-lowest border border-dashed border-outline rounded-xl p-lg flex flex-col items-center justify-center text-center h-[200px]">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center mb-md">
+<span class="material-symbols-outlined text-secondary text-[24px]">inbox</span>
+</div>
+<h4 class="font-label-md text-label-md text-on-surface mb-xs">No pending tasks</h4>
+<p class="font-body-sm text-body-sm text-secondary max-w-[200px]">Data from actionable checkboxes within your notes will appear here.</p>
+</div>
+</div>
+</div>
+</main>
+</body></html>
