@@ -8,6 +8,7 @@ import { render, type RenderOptions, type RenderResult } from '@testing-library/
 import {
   NotePinProvider,
   useNotePinApi,
+  type NotePinProviderProps,
 } from '../features/note-pin/note-pin.store';
 import type { NoteItem, NotePinAppApi } from '../features/note-pin/note-pin.types';
 
@@ -15,20 +16,27 @@ export interface RenderWithStoreOptions extends Omit<RenderOptions, 'wrapper'> {
   initialRecords?: NoteItem[];
 }
 
-function StoreWrapper({ children }: { children?: ReactNode }) {
-  return createElement(NotePinProvider, null, children);
+function StoreWrapper({
+  children,
+  initialRecords,
+}: {
+  children: ReactNode;
+  initialRecords?: NoteItem[];
+}) {
+  const providerProps: NotePinProviderProps = { children, initialRecords };
+  return createElement(NotePinProvider, providerProps);
 }
 
 export function renderWithStore(
   ui: ReactElement,
   options: RenderWithStoreOptions = {},
 ): RenderResult {
-  const { initialRecords: _ignored, ...rest } = options;
-  // NotePin bootstrap is exercised against real localStorage by default;
-  // tests that need deterministic seed data should construct the store directly.
-  void _ignored;
+  const { initialRecords, ...rest } = options;
+  // Forward initialRecords to NotePinProvider so tests can seed the store with
+  // deterministic mock data without touching real localStorage.
   return render(ui, {
-    wrapper: StoreWrapper,
+    wrapper: ({ children }) =>
+      createElement(StoreWrapper, { initialRecords, children }),
     ...rest,
   });
 }

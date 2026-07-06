@@ -9,33 +9,28 @@ import {
   RecordEditorNotePin,
   RecordOperationsNotePin,
 } from './screens';
-import type { ActivePanel, NotePinAppApi } from './features/note-pin/note-pin.types';
+import type { ActivePanel } from './features/note-pin/note-pin.types';
 
 function Shell(): JSX.Element {
-  const { state, dispatch } = useNotePinStore();
+  const { state } = useNotePinStore();
   const api = useNotePinApi();
 
   // Expose window.app — stable bridge for tests and runtime probes.
   // Per test_contract: window.app exposes active screen/route, selected record,
   // counts, storage status, last error, and active panel.
+  // `api` is referentially stable (memoized with a state-ref), so we can assign
+  // it directly without rebuilding on every state transition.
   useEffect(() => {
     if (typeof window === 'undefined') {
       return;
     }
-    const exposed: NotePinAppApi = {
-      state: () => state,
-      navigate: (panel) => dispatch({ type: 'NAVIGATE', panel }),
-      selectRecord: (id) => dispatch({ type: 'SELECT', id }),
-      reload: () => api.reload(),
-      clearError: () => dispatch({ type: 'CLEAR_ERROR' }),
-    };
-    window.app = exposed;
+    window.app = api;
     return () => {
-      if (window.app === exposed) {
+      if (window.app === api) {
         delete window.app;
       }
     };
-  }, [state, dispatch, api]);
+  }, [api]);
 
   const actions = useMemo(() => {
     return {

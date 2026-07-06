@@ -103,8 +103,9 @@ export function NotePinProvider({ children, initialRecords }: NotePinProviderPro
     }
     bootstrappedRef.current = true;
     dispatch({ type: 'LOAD_START' });
-    if (initialRecords && initialRecords.length > 0) {
+    if (initialRecords) {
       // Test override: caller-provided seed avoids touching storage in tests.
+      // Defined-check (not length>0) so an explicit empty array also bypasses localStorage.
       dispatch({
         type: 'LOAD_OK',
         records: initialRecords,
@@ -126,9 +127,17 @@ export function NotePinProvider({ children, initialRecords }: NotePinProviderPro
     }
   }, [dispatch, initialRecords]);
 
+  // Keep latest state in a ref so the api object can stay referentially
+  // stable across renders. Without this, anything that depends on `useNotePinApi()`
+  // (e.g. the `actions` memo in App.tsx) would re-evaluate on every state transition.
+  const stateRef = useRef<NotePinAppState>(state);
+  useEffect(() => {
+    stateRef.current = state;
+  }, [state]);
+
   const api = useMemo<NotePinAppApi>(
     () => ({
-      state: () => state,
+      state: () => stateRef.current,
       navigate: (panel) => dispatch({ type: 'NAVIGATE', panel }),
       selectRecord: (id) => dispatch({ type: 'SELECT', id }),
       reload: () => {
@@ -147,7 +156,9 @@ export function NotePinProvider({ children, initialRecords }: NotePinProviderPro
       },
       clearError: () => dispatch({ type: 'CLEAR_ERROR' }),
     }),
-    [state, dispatch],
+    // dispatch is created via useCallback with stable deps; keep it in the array
+    // for exhaustive-deps lint while preserving referential stability.
+    [dispatch],
   );
 
   return (
