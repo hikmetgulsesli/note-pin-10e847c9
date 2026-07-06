@@ -1,0 +1,553 @@
+[
+  {
+    "screenId": "296c3f074ff7424089535b3a95034469",
+    "screenTitle": "Record Editor - Note Pin",
+    "deviceType": "DESKTOP",
+    "elements": [
+      {
+        "type": "link",
+        "label": "Records",
+        "href": "#",
+        "line": 154
+      },
+      {
+        "type": "link",
+        "label": "Editor",
+        "href": "#",
+        "line": 158
+      },
+      {
+        "type": "link",
+        "label": "Insights",
+        "href": "#",
+        "line": 162
+      },
+      {
+        "type": "link",
+        "label": "settings",
+        "href": "#",
+        "line": 169
+      },
+      {
+        "type": "link",
+        "label": "Support",
+        "href": "#",
+        "line": 173
+      },
+      {
+        "type": "button",
+        "label": "Cancel",
+        "line": 122
+      },
+      {
+        "type": "button",
+        "label": "Create",
+        "line": 123
+      },
+      {
+        "type": "button",
+        "label": "Records",
+        "line": 130
+      },
+      {
+        "type": "button",
+        "label": "Editor",
+        "line": 131
+      },
+      {
+        "type": "button",
+        "label": "Insights",
+        "line": 132
+      },
+      {
+        "type": "button",
+        "label": "New Note",
+        "line": 148
+      },
+      {
+        "type": "button",
+        "label": "Cancel",
+        "line": 191
+      },
+      {
+        "type": "button",
+        "label": "Record",
+        "line": 194
+      },
+      {
+        "type": "button",
+        "label": "save",
+        "line": 232
+      },
+      {
+        "type": "input",
+        "label": "Note Title",
+        "inputType": "text",
+        "placeholder": "Note Title",
+        "line": 205
+      },
+      {
+        "type": "input",
+        "label": "Start typing your note here...",
+        "inputType": "textarea",
+        "placeholder": "Start typing your note here...",
+        "line": 225
+      }
+    ],
+    "navigation": [
+      {
+        "type": "link",
+        "label": "Records",
+        "href": "#",
+        "line": 154
+      },
+      {
+        "type": "link",
+        "label": "Editor",
+        "href": "#",
+        "line": 158
+      },
+      {
+        "type": "link",
+        "label": "Insights",
+        "href": "#",
+        "line": 162
+      },
+      {
+        "type": "link",
+        "label": "settings",
+        "href": "#",
+        "line": 169
+      },
+      {
+        "type": "link",
+        "label": "Support",
+        "href": "#",
+        "line": 173
+      }
+    ],
+    "buttons": [
+      {
+        "type": "button",
+        "label": "Cancel",
+        "line": 122
+      },
+      {
+        "type": "button",
+        "label": "Create",
+        "line": 123
+      },
+      {
+        "type": "button",
+        "label": "Records",
+        "line": 130
+      },
+      {
+        "type": "button",
+        "label": "Editor",
+        "line": 131
+      },
+      {
+        "type": "button",
+        "label": "Insights",
+        "line": 132
+      },
+      {
+        "type": "button",
+        "label": "New Note",
+        "line": 148
+      },
+      {
+        "type": "button",
+        "label": "Cancel",
+        "line": 191
+      },
+      {
+        "type": "button",
+        "label": "Record",
+        "line": 194
+      },
+      {
+        "type": "button",
+        "label": "save",
+        "line": 232
+      }
+    ],
+    "inputs": [
+      {
+        "type": "input",
+        "label": "Note Title",
+        "inputType": "text",
+        "placeholder": "Note Title",
+        "line": 205
+      },
+      {
+        "type": "input",
+        "label": "Start typing your note here...",
+        "inputType": "textarea",
+        "placeholder": "Start typing your note here...",
+        "line": 225
+      }
+    ],
+    "hardcodedData": [],
+    "totalInteractive": 16,
+    "requiresRouter": false,
+    "requiresDragDrop": false
+  },
+  {
+    "screenId": "efbd0ed3f3c641b6baaaff3ceb420a9d",
+    "screenTitle": "Insights - Note Pin",
+    "deviceType": "DESKTOP",
+    "elements": [
+      {
+        "type": "link",
+        "label": "Records",
+        "href": "#",
+        "line": 139
+      },
+      {
+        "type": "link",
+        "label": "Editor",
+        "href": "#",
+        "line": 144
+      },
+      {
+        "type": "link",
+        "label": "Insights",
+        "href": "#",
+        "line": 149
+      },
+      {
+        "type": "link",
+        "label": "settings",
+        "href": "#",
+        "line": 156
+      },
+      {
+        "type": "link",
+        "label": "Support",
+        "href": "#",
+        "line": 160
+      },
+      {
+        "type": "button",
+        "label": "New Note",
+        "line": 132
+      },
+      {
+        "type": "button",
+        "label": "Export Summary",
+        "line": 185
+      },
+      {
+        "type": "button",
+        "label": "filter_list",
+        "line": 190
+      },
+      {
+        "type": "button",
+        "label": "Review Drafts",
+        "line": 235
+      },
+      {
+        "type": "button",
+        "label": "more_horiz",
+        "line": 244
+      },
+      {
+        "type": "button",
+        "label": "View All Activity",
+        "line": 291
+      }
+    ],
+    "navigation": [
+      {
+        "type": "link",
+        "label": "Records",
+        "href": "#",
+        "line": 139
+      },
+      {
+        "type": "link",
+        "label": "Editor",
+        "href": "#",
+        "line": 144
+      },
+      {
+        "type": "link",
+        "label": "Insights",
+        "href": "#",
+        "line": 149
+      },
+      {
+        "type": "link",
+        "label": "settings",
+        "href": "#",
+        "line": 156
+      },
+      {
+        "type": "link",
+        "label": "Support",
+        "href": "#",
+        "line": 160
+      }
+    ],
+    "buttons": [
+      {
+        "type": "button",
+        "label": "New Note",
+        "line": 132
+      },
+      {
+        "type": "button",
+        "label": "Export Summary",
+        "line": 185
+      },
+      {
+        "type": "button",
+        "label": "filter_list",
+        "line": 190
+      },
+      {
+        "type": "button",
+        "label": "Review Drafts",
+        "line": 235
+      },
+      {
+        "type": "button",
+        "label": "more_horiz",
+        "line": 244
+      },
+      {
+        "type": "button",
+        "label": "View All Activity",
+        "line": 291
+      }
+    ],
+    "inputs": [],
+    "hardcodedData": [],
+    "totalInteractive": 11,
+    "requiresRouter": false,
+    "requiresDragDrop": false
+  },
+  {
+    "screenId": "f16272b4acc84609bb58ed4abcacdb01",
+    "screenTitle": "Record Operations - Note Pin",
+    "deviceType": "DESKTOP",
+    "elements": [
+      {
+        "type": "button",
+        "label": "Create",
+        "line": 138
+      },
+      {
+        "type": "button",
+        "label": "New Note",
+        "line": 153
+      },
+      {
+        "type": "button",
+        "label": "Records",
+        "line": 160
+      },
+      {
+        "type": "button",
+        "label": "Editor",
+        "line": 165
+      },
+      {
+        "type": "button",
+        "label": "Insights",
+        "line": 169
+      },
+      {
+        "type": "button",
+        "label": "settings",
+        "line": 176
+      },
+      {
+        "type": "button",
+        "label": "Support",
+        "line": 180
+      },
+      {
+        "type": "button",
+        "label": "Filter",
+        "line": 193
+      },
+      {
+        "type": "button",
+        "label": "sort",
+        "line": 197
+      },
+      {
+        "type": "button",
+        "label": "Retry Load",
+        "line": 225
+      },
+      {
+        "type": "button",
+        "label": "refresh",
+        "line": 237
+      },
+      {
+        "type": "button",
+        "label": "edit",
+        "line": 251
+      },
+      {
+        "type": "button",
+        "label": "edit",
+        "line": 260
+      },
+      {
+        "type": "button",
+        "label": "edit",
+        "line": 268
+      },
+      {
+        "type": "button",
+        "label": "edit",
+        "line": 276
+      },
+      {
+        "type": "button",
+        "label": "edit",
+        "line": 284
+      },
+      {
+        "type": "button",
+        "label": "Create New Record",
+        "line": 303
+      },
+      {
+        "type": "button",
+        "label": "share",
+        "line": 320
+      },
+      {
+        "type": "button",
+        "label": "more_vert",
+        "line": 321
+      },
+      {
+        "type": "input",
+        "label": "Search records, tags, or content...",
+        "inputType": "text",
+        "placeholder": "Search records, tags, or content...",
+        "line": 208
+      }
+    ],
+    "navigation": [],
+    "buttons": [
+      {
+        "type": "button",
+        "label": "Create",
+        "line": 138
+      },
+      {
+        "type": "button",
+        "label": "New Note",
+        "line": 153
+      },
+      {
+        "type": "button",
+        "label": "Records",
+        "line": 160
+      },
+      {
+        "type": "button",
+        "label": "Editor",
+        "line": 165
+      },
+      {
+        "type": "button",
+        "label": "Insights",
+        "line": 169
+      },
+      {
+        "type": "button",
+        "label": "settings",
+        "line": 176
+      },
+      {
+        "type": "button",
+        "label": "Support",
+        "line": 180
+      },
+      {
+        "type": "button",
+        "label": "Filter",
+        "line": 193
+      },
+      {
+        "type": "button",
+        "label": "sort",
+        "line": 197
+      },
+      {
+        "type": "button",
+        "label": "Retry Load",
+        "line": 225
+      },
+      {
+        "type": "button",
+        "label": "refresh",
+        "line": 237
+      },
+      {
+        "type": "button",
+        "label": "edit",
+        "line": 251
+      },
+      {
+        "type": "button",
+        "label": "edit",
+        "line": 260
+      },
+      {
+        "type": "button",
+        "label": "edit",
+        "line": 268
+      },
+      {
+        "type": "button",
+        "label": "edit",
+        "line": 276
+      },
+      {
+        "type": "button",
+        "label": "edit",
+        "line": 284
+      },
+      {
+        "type": "button",
+        "label": "Create New Record",
+        "line": 303
+      },
+      {
+        "type": "button",
+        "label": "share",
+        "line": 320
+      },
+      {
+        "type": "button",
+        "label": "more_vert",
+        "line": 321
+      }
+    ],
+    "inputs": [
+      {
+        "type": "input",
+        "label": "Search records, tags, or content...",
+        "inputType": "text",
+        "placeholder": "Search records, tags, or content...",
+        "line": 208
+      }
+    ],
+    "hardcodedData": [],
+    "totalInteractive": 20,
+    "requiresRouter": false,
+    "requiresDragDrop": false
+  }
+]
