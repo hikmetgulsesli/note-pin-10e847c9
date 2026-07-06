@@ -4,12 +4,11 @@
 
 import {
   createContext,
-  useCallback,
   useContext,
   useEffect,
   useMemo,
+  useReducer,
   useRef,
-  useState,
   type ReactNode,
 } from 'react';
 import {
@@ -89,12 +88,15 @@ export interface NotePinProviderProps {
 }
 
 export function NotePinProvider({ children, initialRecords }: NotePinProviderProps): JSX.Element {
-  const [state, setState] = useState<NotePinAppState>(INITIAL_STATE);
+  // `useReducer` guarantees that `dispatch` retains a stable identity for the
+  // lifetime of the provider, which lets the `api` memo below avoid depending on
+  // `state` (and therefore avoid being rebuilt on every state transition).
+  // This is the fix for the gemini-code-assist review comment on
+  // `src/features/note-pin/note-pin.store.tsx`: any consumer of
+  // `useNotePinApi()` (e.g. the `actions` memo in `App.tsx`) now sees a
+  // referentially-stable API object.
+  const [state, dispatch] = useReducer(notePinReducer, INITIAL_STATE);
   const bootstrappedRef = useRef(false);
-
-  const dispatch = useCallback((action: NotePinAction) => {
-    setState((prev) => notePinReducer(prev, action));
-  }, []);
 
   // Bootstrap on mount: load persisted records once.
   useEffect(() => {
@@ -127,9 +129,10 @@ export function NotePinProvider({ children, initialRecords }: NotePinProviderPro
     }
   }, [dispatch, initialRecords]);
 
-  // Keep latest state in a ref so the api object can stay referentially
-  // stable across renders. Without this, anything that depends on `useNotePinApi()`
-  // (e.g. the `actions` memo in App.tsx) would re-evaluate on every state transition.
+  // Keep the latest state in a ref so the `api` object can stay referentially
+  // stable across renders while still returning the latest snapshot from
+  // `api.state()`. Without this sync effect, callers would observe a frozen
+  // snapshot rather than a live read of the most recent state.
   const stateRef = useRef<NotePinAppState>(state);
   useEffect(() => {
     stateRef.current = state;
@@ -156,9 +159,9 @@ export function NotePinProvider({ children, initialRecords }: NotePinProviderPro
       },
       clearError: () => dispatch({ type: 'CLEAR_ERROR' }),
     }),
-    // dispatch is created via useCallback with stable deps; keep it in the array
-    // for exhaustive-deps lint while preserving referential stability.
-    [dispatch],
+    // `dispatch` from `useReducer` is referentially stable for the entire
+    // lifetime of the provider, so the `api` object is built exactly once.
+    [],
   );
 
   return (
