@@ -1,0 +1,309 @@
+[
+  {
+    "screenId": "296c3f074ff7424089535b3a95034469",
+    "title": "Record Editor - Note Pin",
+    "componentName": "RecordEditorNotePin",
+    "file": "src/screens/RecordEditorNotePin.tsx",
+    "buttons": 9,
+    "inputs": 1,
+    "links": 5,
+    "actions": [
+      {
+        "id": "cancel-1",
+        "kind": "button",
+        "label": "Cancel",
+        "index": 0
+      },
+      {
+        "id": "create-2",
+        "kind": "button",
+        "label": "Create",
+        "index": 1
+      },
+      {
+        "id": "records-3",
+        "kind": "button",
+        "label": "Records",
+        "index": 2
+      },
+      {
+        "id": "editor-4",
+        "kind": "button",
+        "label": "Editor",
+        "index": 3
+      },
+      {
+        "id": "insights-5",
+        "kind": "button",
+        "label": "Insights",
+        "index": 4
+      },
+      {
+        "id": "new-note-6",
+        "kind": "button",
+        "label": "New Note",
+        "index": 5
+      },
+      {
+        "id": "cancel-7",
+        "kind": "button",
+        "label": "Cancel",
+        "index": 6
+      },
+      {
+        "id": "save-record-8",
+        "kind": "button",
+        "label": "Save Record",
+        "index": 7
+      },
+      {
+        "id": "save-9",
+        "kind": "button",
+        "label": "Save",
+        "index": 8
+      },
+      {
+        "id": "records-1",
+        "kind": "link",
+        "label": "Records",
+        "href": "#",
+        "index": 0
+      },
+      {
+        "id": "editor-2",
+        "kind": "link",
+        "label": "Editor",
+        "href": "#",
+        "index": 1
+      },
+      {
+        "id": "insights-3",
+        "kind": "link",
+        "label": "Insights",
+        "href": "#",
+        "index": 2
+      },
+      {
+        "id": "settings-4",
+        "kind": "link",
+        "label": "Settings",
+        "href": "#",
+        "index": 3
+      },
+      {
+        "id": "support-5",
+        "kind": "link",
+        "label": "Support",
+        "href": "#",
+        "index": 4
+      }
+    ]
+  },
+  {
+    "screenId": "efbd0ed3f3c641b6baaaff3ceb420a9d",
+    "title": "Insights - Note Pin",
+    "componentName": "InsightsNotePin",
+    "file": "src/screens/InsightsNotePin.tsx",
+    "buttons": 6,
+    "inputs": 0,
+    "links": 5,
+    "actions": [
+      {
+        "id": "new-note-1",
+        "kind": "button",
+        "label": "New Note",
+        "index": 0
+      },
+      {
+        "id": "export-summary-2",
+        "kind": "button",
+        "label": "Export Summary",
+        "index": 1
+      },
+      {
+        "id": "filter-list-3",
+        "kind": "button",
+        "label": "Filter List",
+        "index": 2
+      },
+      {
+        "id": "review-drafts-4",
+        "kind": "button",
+        "label": "Review Drafts",
+        "index": 3
+      },
+      {
+        "id": "more-horiz-5",
+        "kind": "button",
+        "label": "More Horiz",
+        "index": 4
+      },
+      {
+        "id": "view-all-activity-6",
+        "kind": "button",
+        "label": "View All Activity",
+        "index": 5
+      },
+      {
+        "id": "records-1",
+        "kind": "link",
+        "label": "Records",
+        "href": "#",
+        "index": 0
+      },
+      {
+        "id": "editor-2",
+        "kind": "link",
+        "label": "Editor",
+        "href": "#",
+        "index": 1
+      },
+      {
+        "id": "insights-3",
+        "kind": "link",
+        "label": "Insights",
+        "href": "#",
+        "index": 2
+      },
+      {
+        "id": "settings-4",
+        "kind": "link",
+        "label": "Settings",
+        "href": "#",
+        "index": 3
+      },
+      {
+        "id": "support-5",
+        "kind": "link",
+        "label": "Support",
+        "href": "#",
+        "index": 4
+      }
+    ]
+  },
+  {
+    "screenId": "f16272b4acc84609bb58ed4abcacdb01",
+    "title": "Record Operations - Note Pin",
+    "componentName": "RecordOperationsNotePin",
+    "file": "src/screens/RecordOperationsNotePin.tsx",
+    "buttons": 19,
+    "inputs": 1,
+    "links": 0,
+    "actions": [
+      {
+        "id": "create-1",
+        "kind": "button",
+        "label": "Create",
+        "index": 0
+      },
+      {
+        "id": "new-note-2",
+        "kind": "button",
+        "label": "New Note",
+        "index": 1
+      },
+      {
+        "id": "records-3",
+        "kind": "button",
+        "label": "Records",
+        "index": 2
+      },
+      {
+        "id": "editor-4",
+        "kind": "button",
+        "label": "Editor",
+        "index": 3
+      },
+      {
+        "id": "insights-5",
+        "kind": "button",
+        "label": "Insights",
+        "index": 4
+      },
+      {
+        "id": "settings-6",
+        "kind": "button",
+        "label": "Settings",
+        "index": 5
+      },
+      {
+        "id": "support-7",
+        "kind": "button",
+        "label": "Support",
+        "index": 6
+      },
+      {
+        "id": "filter-8",
+        "kind": "button",
+        "label": "Filter",
+        "index": 7
+      },
+      {
+        "id": "sort-9",
+        "kind": "button",
+        "label": "Sort",
+        "index": 8
+      },
+      {
+        "id": "retry-load-10",
+        "kind": "button",
+        "label": "Retry Load",
+        "index": 9
+      },
+      {
+        "id": "refresh-list-11",
+        "kind": "button",
+        "label": "Refresh List",
+        "index": 10
+      },
+      {
+        "id": "inline-edit-12",
+        "kind": "button",
+        "label": "Inline Edit",
+        "index": 11
+      },
+      {
+        "id": "edit-13",
+        "kind": "button",
+        "label": "edit",
+        "index": 12
+      },
+      {
+        "id": "edit-14",
+        "kind": "button",
+        "label": "edit",
+        "index": 13
+      },
+      {
+        "id": "edit-15",
+        "kind": "button",
+        "label": "edit",
+        "index": 14
+      },
+      {
+        "id": "edit-16",
+        "kind": "button",
+        "label": "edit",
+        "index": 15
+      },
+      {
+        "id": "create-new-record-17",
+        "kind": "button",
+        "label": "Create New Record",
+        "index": 16
+      },
+      {
+        "id": "share-18",
+        "kind": "button",
+        "label": "Share",
+        "index": 17
+      },
+      {
+        "id": "more-options-19",
+        "kind": "button",
+        "label": "More Options",
+        "index": 18
+      }
+    ]
+  }
+]
